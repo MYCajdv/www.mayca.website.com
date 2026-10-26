@@ -482,33 +482,53 @@
     line-height: 1.6;
     text-align: center;
   }
+  .testimonials-carousel {
+    max-width: 720px;
+    margin: 0 auto;
+  }
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
   .testimonial-card.is-hidden { display: none; }
-  .testimonials-more-wrap {
+  .testimonial-card.is-active {
+    animation: testimonial-slide-in 0.45s ease both;
+  }
+  @keyframes testimonial-slide-in {
+    from { opacity: 0; transform: translateX(var(--testimonial-slide, 24px)); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .testimonials-controls {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
-  .testimonials-more-button {
-    border: 0;
-    border-radius: 999px;
-    padding: 0.9rem 1.8rem;
-    background: var(--teal-dark);
-    color: #fff;
-    font: inherit;
-    font-weight: 700;
+  .testimonials-arrow {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(26,153,153,0.3);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--teal-dark);
+    font-size: 1.3rem;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(26,153,153,0.18);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
   }
-  .testimonials-more-button:hover { transform: translateY(-2px); }
-  .testimonials-more-button:focus-visible {
+  .testimonials-arrow:hover { background: var(--teal-light); transform: scale(1.05); }
+  .testimonials-arrow:focus-visible {
     outline: 3px solid var(--teal);
-    outline-offset: 4px;
+    outline-offset: 3px;
+  }
+  .testimonials-position {
+    min-width: 4.5rem;
+    text-align: center;
+    color: var(--mid);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
   }
   .testimonial-card {
     min-width: 0;
@@ -820,7 +840,8 @@
     <p style="max-width:650px;margin:1rem auto 0;color:var(--mid);line-height:1.8;">A collection of feedback-style examples for the portfolio layout.</p>
   </div>
   <p class="testimonials-note"><strong>Website preview:</strong> These names, comments, and 5.0 ratings are sample content, not verified client reviews. Replace them with genuine client feedback and ratings before presenting them as real testimonials.</p>
-  <div class="testimonials-grid" id="testimonials-grid">
+  <div class="testimonials-carousel">
+  <div class="testimonials-grid" id="testimonials-grid" aria-live="polite">
 
       <article class="testimonial-card reveal">
         <div class="testimonial-card-top">
@@ -1382,11 +1403,12 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
   </div>
-  <div class="testimonials-more-wrap">
-    <button class="testimonials-more-button" id="testimonials-toggle" type="button" aria-expanded="false" aria-controls="testimonials-grid">
-      See More Testimonials
-    </button>
+  <div class="testimonials-controls" aria-label="Testimonial carousel controls">
+    <button class="testimonials-arrow" id="testimonial-prev" type="button" aria-label="Previous testimonial">‹</button>
+    <span class="testimonials-position" id="testimonial-position">1 / 35</span>
+    <button class="testimonials-arrow" id="testimonial-next" type="button" aria-label="Next testimonial">›</button>
   </div>
+</div>
 </section>
 
 <!-- ABOUT -->
@@ -1490,25 +1512,58 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Show five testimonials first, with an option to reveal the rest.
+  // Single-card testimonial carousel: auto-advance with manual left/right controls.
   const testimonialCards = Array.from(document.querySelectorAll('#testimonials-grid .testimonial-card'));
-  const testimonialsToggle = document.querySelector('#testimonials-toggle');
-  const visibleTestimonialsCount = 5;
-  if (testimonialsToggle && testimonialCards.length > visibleTestimonialsCount) {
-    testimonialCards.forEach((card, index) => {
-      if (index >= visibleTestimonialsCount) card.classList.add('is-hidden');
+  const testimonialPrev = document.querySelector('#testimonial-prev');
+  const testimonialNext = document.querySelector('#testimonial-next');
+  const testimonialPosition = document.querySelector('#testimonial-position');
+  const testimonialSection = document.querySelector('#testimonials');
+  let activeTestimonialIndex = 0;
+  let testimonialTimer = null;
+  let testimonialDirection = 1;
+
+  function showTestimonial(index, direction = 1) {
+    if (!testimonialCards.length) return;
+    activeTestimonialIndex = (index + testimonialCards.length) % testimonialCards.length;
+    testimonialCards.forEach((card, cardIndex) => {
+      const active = cardIndex === activeTestimonialIndex;
+      card.classList.toggle('is-hidden', !active);
+      card.classList.toggle('is-active', active);
+      if (active) card.style.setProperty('--testimonial-slide', direction > 0 ? '28px' : '-28px');
     });
-    testimonialsToggle.addEventListener('click', () => {
-      const isExpanded = testimonialsToggle.getAttribute('aria-expanded') === 'true';
-      testimonialCards.forEach((card, index) => {
-        if (index >= visibleTestimonialsCount) card.classList.toggle('is-hidden', isExpanded);
-      });
-      testimonialsToggle.setAttribute('aria-expanded', String(!isExpanded));
-      testimonialsToggle.textContent = isExpanded ? 'See More Testimonials' : 'See Fewer Testimonials';
-      if (isExpanded) document.querySelector('#testimonials').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (testimonialPosition) testimonialPosition.textContent = (activeTestimonialIndex + 1) + ' / ' + testimonialCards.length;
+  }
+
+  function stopTestimonialAutoplay() {
+    if (testimonialTimer) window.clearInterval(testimonialTimer);
+    testimonialTimer = null;
+  }
+  function startTestimonialAutoplay() {
+    stopTestimonialAutoplay();
+    if (testimonialCards.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    testimonialTimer = window.setInterval(() => {
+      testimonialDirection = 1;
+      showTestimonial(activeTestimonialIndex + 1, testimonialDirection);
+    }, 5000);
+  }
+
+  if (testimonialCards.length) {
+    showTestimonial(0, 1);
+    if (testimonialPrev) testimonialPrev.addEventListener('click', () => {
+      showTestimonial(activeTestimonialIndex - 1, -1);
+      startTestimonialAutoplay();
     });
-  } else if (testimonialsToggle) {
-    testimonialsToggle.hidden = true;
+    if (testimonialNext) testimonialNext.addEventListener('click', () => {
+      showTestimonial(activeTestimonialIndex + 1, 1);
+      startTestimonialAutoplay();
+    });
+    if (testimonialSection) {
+      testimonialSection.addEventListener('mouseenter', stopTestimonialAutoplay);
+      testimonialSection.addEventListener('mouseleave', startTestimonialAutoplay);
+      testimonialSection.addEventListener('focusin', stopTestimonialAutoplay);
+      testimonialSection.addEventListener('focusout', startTestimonialAutoplay);
+    }
+    startTestimonialAutoplay();
   }
 
   // Skill bar animation
