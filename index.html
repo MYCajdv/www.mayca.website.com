@@ -1748,7 +1748,7 @@
     if (!testimonialCards.length) return;
     activeTestimonialIndex = (index + testimonialCards.length) % testimonialCards.length;
     testimonialCards.forEach((card, cardIndex) => {
-      const distance = (cardIndex activeTestimonialIndex + testimonialCards.length) % testimonialCards.length;
+      const distance = (cardIndex - activeTestimonialIndex + testimonialCards.length) % testimonialCards.length;
       const active = distance < visibleTestimonialsCount;
       card.hidden = !active;
       card.classList.toggle('is-hidden', !active);
