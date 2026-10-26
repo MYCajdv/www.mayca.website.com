@@ -491,7 +491,8 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
-  .testimonial-card.is-hidden { display: none; }
+  .testimonial-card.is-hidden,
+  .testimonial-card[hidden] { display: none !important; }
   .testimonial-card.is-active {
     animation: testimonial-slide-in 0.45s ease both;
   }
@@ -843,7 +844,7 @@
   <div class="testimonials-carousel">
   <div class="testimonials-grid" id="testimonials-grid" aria-live="polite">
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal is-active">
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">HC</div>
           <div class="testimonial-client">
@@ -859,7 +860,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">MS</div>
           <div class="testimonial-client">
@@ -875,7 +876,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">NR</div>
           <div class="testimonial-client">
@@ -891,7 +892,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">AF</div>
           <div class="testimonial-client">
@@ -907,7 +908,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">CS</div>
           <div class="testimonial-client">
@@ -923,7 +924,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">JB</div>
           <div class="testimonial-client">
@@ -939,7 +940,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">AM</div>
           <div class="testimonial-client">
@@ -955,7 +956,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">KR</div>
           <div class="testimonial-client">
@@ -971,7 +972,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">PG</div>
           <div class="testimonial-client">
@@ -987,7 +988,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">BF</div>
           <div class="testimonial-client">
@@ -1003,7 +1004,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">AM</div>
           <div class="testimonial-client">
@@ -1019,7 +1020,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">CM</div>
           <div class="testimonial-client">
@@ -1035,7 +1036,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">JC</div>
           <div class="testimonial-client">
@@ -1051,7 +1052,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">MT</div>
           <div class="testimonial-client">
@@ -1067,7 +1068,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">RP</div>
           <div class="testimonial-client">
@@ -1083,7 +1084,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">FD</div>
           <div class="testimonial-client">
@@ -1099,7 +1100,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">DP</div>
           <div class="testimonial-client">
@@ -1115,7 +1116,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">AC</div>
           <div class="testimonial-client">
@@ -1131,7 +1132,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">SB</div>
           <div class="testimonial-client">
@@ -1147,7 +1148,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">PR</div>
           <div class="testimonial-client">
@@ -1163,7 +1164,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">CW</div>
           <div class="testimonial-client">
@@ -1179,7 +1180,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">JG</div>
           <div class="testimonial-client">
@@ -1195,7 +1196,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">MJ</div>
           <div class="testimonial-client">
@@ -1211,7 +1212,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">NC</div>
           <div class="testimonial-client">
@@ -1227,7 +1228,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">KB</div>
           <div class="testimonial-client">
@@ -1243,7 +1244,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">DB</div>
           <div class="testimonial-client">
@@ -1259,7 +1260,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">MR</div>
           <div class="testimonial-client">
@@ -1275,7 +1276,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">RM</div>
           <div class="testimonial-client">
@@ -1291,7 +1292,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">AJ</div>
           <div class="testimonial-client">
@@ -1307,7 +1308,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">MAL</div>
           <div class="testimonial-client">
@@ -1323,7 +1324,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">EC</div>
           <div class="testimonial-client">
@@ -1339,7 +1340,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">JV</div>
           <div class="testimonial-client">
@@ -1355,7 +1356,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">TF</div>
           <div class="testimonial-client">
@@ -1371,7 +1372,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">PM</div>
           <div class="testimonial-client">
@@ -1387,7 +1388,7 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
 
-      <article class="testimonial-card reveal">
+      <article class="testimonial-card reveal" hidden>
         <div class="testimonial-card-top">
           <div class="testimonial-avatar" aria-hidden="true">JC</div>
           <div class="testimonial-client">
@@ -1527,6 +1528,7 @@
     activeTestimonialIndex = (index + testimonialCards.length) % testimonialCards.length;
     testimonialCards.forEach((card, cardIndex) => {
       const active = cardIndex === activeTestimonialIndex;
+      card.hidden = !active;
       card.classList.toggle('is-hidden', !active);
       card.classList.toggle('is-active', active);
       if (active) card.style.setProperty('--testimonial-slide', direction > 0 ? '28px' : '-28px');
