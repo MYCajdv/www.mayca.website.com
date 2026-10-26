@@ -708,6 +708,17 @@
     .stat-item, .metric-row, .skill-row { transition: none !important; }
   }
 
+
+  #pricing { padding: 6rem 4rem; background: var(--warm); }
+  #pricing .section-subtitle { max-width: 620px; margin: 1rem auto 0; color: var(--mid); line-height: 1.7; }
+  .pricing-callout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem; text-align: center; background: var(--white); border: 1px solid rgba(58,191,191,.22); border-radius: 28px; box-shadow: 0 18px 55px rgba(28,28,28,.06); }
+  .pricing-callout-icon { width: 54px; height: 54px; margin: 0 auto 1rem; display: grid; place-items: center; border-radius: 50%; background: var(--teal-light); color: var(--teal-dark); font-size: 1.5rem; }
+  .pricing-callout h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .8rem; }
+  .pricing-callout p { max-width: 540px; margin: 0 auto 1.5rem; color: var(--mid); line-height: 1.75; }
+  .pricing-cta { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; }
+  .pricing-note { display: block; margin-top: 1.25rem; color: var(--light); font-size: .8rem; letter-spacing: .03em; }
+  @media (max-width: 700px) { #pricing { padding: 4rem 1.25rem; } .pricing-callout { padding: 2.2rem 1.25rem; } }
+
 </style>
 </head>
 <body>
@@ -719,6 +730,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#testimonials" id="testimonials-nav-link">Testimonials</a></li>
     <li><a href="#about">About</a></li>
   </ul>
@@ -1573,6 +1585,23 @@
   </div>
 </section>
 
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-header reveal">
+    <div class="section-tag">Flexible Pricing</div>
+    <h2 class="section-title">Let's Find the Right <em>Fit</em></h2>
+    <p class="section-subtitle">Every brand has different goals. Let's talk about the support you need for organic social media, video editing, and paid ads.</p>
+  </div>
+  <div class="pricing-callout reveal">
+    <div class="pricing-callout-icon">✦</div>
+    <h3>Do you have a price in mind?</h3>
+    <p>Tell me about your goals and budget. We'll discuss a package that fits your needs, priorities, and business.</p>
+    <a href="mailto:maycabaluyut03@gmail.com?subject=Book%20a%20Pricing%20Call" class="btn-primary pricing-cta">Book a Call Now <span aria-hidden="true">↗</span></a>
+    <span class="pricing-note">Organic social media · Video editing · Paid ads</span>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
@@ -1616,6 +1645,7 @@
     <a href="#hero">Home</a>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
     <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </div>
