@@ -746,8 +746,10 @@
   #pricing { padding: 6.5rem 2rem; }
   #pricing .section-header { max-width: 760px; margin: 0 auto 2.5rem; text-align: center; }
   #pricing .section-tag { margin-bottom: .8rem; }
-  .pricing-packages { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; gap: 1.5rem; max-width: 100%; margin: 0 auto 2rem; }
+  .pricing-packages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); justify-content: center; gap: 1.5rem; max-width: 1200px; margin: 0 auto 2rem; }
   .pricing-package { width: 100%; padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: 24px; }
+  .pricing-package { grid-column: 2; }
+  @media (max-width: 900px) { .pricing-packages { grid-template-columns: minmax(0, 620px); } .pricing-package { grid-column: auto; } }
   .pricing-package h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; }
   .package-account { margin-bottom: 1.5rem; line-height: 1.6; }
   .pricing-package ul { margin-bottom: 1.75rem; }
