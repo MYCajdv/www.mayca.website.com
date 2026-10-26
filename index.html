@@ -487,6 +487,29 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
   }
+  .testimonial-card.is-hidden { display: none; }
+  .testimonials-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .testimonials-more-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 0.9rem 1.8rem;
+    background: var(--teal-dark);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(26,153,153,0.18);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .testimonials-more-button:hover { transform: translateY(-2px); }
+  .testimonials-more-button:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 4px;
+  }
   .testimonial-card {
     min-width: 0;
     padding: 1.5rem;
@@ -797,7 +820,7 @@
     <p style="max-width:650px;margin:1rem auto 0;color:var(--mid);line-height:1.8;">A collection of feedback-style examples for the portfolio layout.</p>
   </div>
   <p class="testimonials-note"><strong>Website preview:</strong> These names, comments, and 5.0 ratings are sample content, not verified client reviews. Replace them with genuine client feedback and ratings before presenting them as real testimonials.</p>
-  <div class="testimonials-grid">
+  <div class="testimonials-grid" id="testimonials-grid">
 
       <article class="testimonial-card reveal">
         <div class="testimonial-card-top">
@@ -1359,6 +1382,11 @@
         <span class="testimonial-demo-label">Sample feedback</span>
       </article>
   </div>
+  <div class="testimonials-more-wrap">
+    <button class="testimonials-more-button" id="testimonials-toggle" type="button" aria-expanded="false" aria-controls="testimonials-grid">
+      See More Testimonials
+    </button>
+  </div>
 </section>
 
 <!-- ABOUT -->
@@ -1461,6 +1489,27 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Show five testimonials first, with an option to reveal the rest.
+  const testimonialCards = Array.from(document.querySelectorAll('#testimonials-grid .testimonial-card'));
+  const testimonialsToggle = document.querySelector('#testimonials-toggle');
+  const visibleTestimonialsCount = 5;
+  if (testimonialsToggle && testimonialCards.length > visibleTestimonialsCount) {
+    testimonialCards.forEach((card, index) => {
+      if (index >= visibleTestimonialsCount) card.classList.add('is-hidden');
+    });
+    testimonialsToggle.addEventListener('click', () => {
+      const isExpanded = testimonialsToggle.getAttribute('aria-expanded') === 'true';
+      testimonialCards.forEach((card, index) => {
+        if (index >= visibleTestimonialsCount) card.classList.toggle('is-hidden', isExpanded);
+      });
+      testimonialsToggle.setAttribute('aria-expanded', String(!isExpanded));
+      testimonialsToggle.textContent = isExpanded ? 'See More Testimonials' : 'See Fewer Testimonials';
+      if (isExpanded) document.querySelector('#testimonials').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  } else if (testimonialsToggle) {
+    testimonialsToggle.hidden = true;
+  }
 
   // Skill bar animation
   const skillObserver = new IntersectionObserver((entries) => {
