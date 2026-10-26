@@ -1450,10 +1450,7 @@
 
       </article>
   </div>
-  <div class="testimonials-controls" aria-label="Testimonial carousel controls">
-    <button class="testimonials-arrow" id="testimonial-prev" type="button" aria-label="Previous testimonial">‹</button>
-    <button class="testimonials-arrow" id="testimonial-next" type="button" aria-label="Next testimonial">›</button>
-  </div>
+
   <div class="testimonials-view-toggle-wrap">
     <button class="testimonials-view-toggle" id="testimonials-view-toggle" type="button" aria-expanded="false">View All Testimonials</button>
   </div>
@@ -1628,7 +1625,7 @@
     testimonialTimer = window.setInterval(() => {
       testimonialDirection = 1;
       showTestimonial(activeTestimonialIndex + 1, testimonialDirection);
-    }, 2000);
+    }, 1500);
   }
 
   if (testimonialCards.length) {
