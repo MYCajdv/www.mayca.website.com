@@ -1,4 +1,3 @@
-Syntax highlighting has been disabled due to code size.
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -465,6 +464,117 @@ Syntax highlighting has been disabled due to code size.
     .about-image-side { display: none; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
   }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    padding: 6rem 4rem;
+    background: var(--warm);
+  }
+  .testimonials-note {
+    max-width: 820px;
+    margin: -2rem auto 2.5rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid rgba(26,153,153,0.25);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.7);
+    color: var(--mid);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .testimonial-card {
+    min-width: 0;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid rgba(58,191,191,0.16);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(28,28,28,0.035);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(28,28,28,0.08);
+  }
+  .testimonial-card-top {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+  .testimonial-client h3 {
+    color: var(--charcoal);
+    font-size: 0.98rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .testimonial-client p {
+    color: var(--light);
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  .testimonial-rating {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .testimonial-stars {
+    color: #E9AD22;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+  .testimonial-score {
+    color: var(--charcoal);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .testimonial-card blockquote {
+    color: var(--mid);
+    font-size: 0.88rem;
+    line-height: 1.75;
+    flex: 1;
+  }
+  .testimonial-demo-label {
+    align-self: flex-start;
+    color: var(--teal-dark);
+    background: rgba(58,191,191,0.12);
+    border-radius: 30px;
+    padding: 0.28rem 0.65rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 1000px) {
+    #testimonials { padding: 5rem 2rem; }
+    .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    #testimonials { padding: 4rem 1.2rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-note { margin-top: -2rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -476,6 +586,7 @@ Syntax highlighting has been disabled due to code size.
     <li><a href="#services">Services</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Hire Me</a>
@@ -678,6 +789,578 @@ Syntax highlighting has been disabled due to code size.
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="section-tag">Client Feedback</span>
+    <h2 class="section-title">Kind Words &amp; <em>Experiences</em></h2>
+    <p style="max-width:650px;margin:1rem auto 0;color:var(--mid);line-height:1.8;">A collection of feedback-style examples for the portfolio layout.</p>
+  </div>
+  <p class="testimonials-note"><strong>Website preview:</strong> These names, comments, and 5.0 ratings are sample content, not verified client reviews. Replace them with genuine client feedback and ratings before presenting them as real testimonials.</p>
+  <div class="testimonials-grid">
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">HC</div>
+          <div class="testimonial-client">
+            <h3>Hannah C.</h3>
+            <p>Social Media Management</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca is organized and creative. She helps keep our social media content consistent and professional.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">MS</div>
+          <div class="testimonial-client">
+            <h3>Mark S.</h3>
+            <p>Content Creation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“The content is attractive, clear, and aligned with our brand. Working together has been a smooth experience.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">NR</div>
+          <div class="testimonial-client">
+            <h3>Nicole R.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca is dependable, attentive to details, and helpful with our day-to-day tasks.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">AF</div>
+          <div class="testimonial-client">
+            <h3>Adrian F.</h3>
+            <p>Video Editing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She edits our videos carefully and listens to feedback to improve the final result.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">CS</div>
+          <div class="testimonial-client">
+            <h3>Camille S.</h3>
+            <p>Graphic Design</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Her designs are clean, creative, and suitable for our social media platforms.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">JB</div>
+          <div class="testimonial-client">
+            <h3>Joshua B.</h3>
+            <p>Social Media Management</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca brings fresh ideas and helps us stay organized with our content calendar.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">AM</div>
+          <div class="testimonial-client">
+            <h3>Andrea M.</h3>
+            <p>Content Creation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She understands our requirements and works hard to create content that fits our brand.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">KR</div>
+          <div class="testimonial-client">
+            <h3>Kevin R.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She communicates clearly, follows instructions, and helps keep our tasks on track.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">PG</div>
+          <div class="testimonial-client">
+            <h3>Patricia G.</h3>
+            <p>Graphic Design</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca pays attention to design details and makes revisions based on our suggestions.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">BF</div>
+          <div class="testimonial-client">
+            <h3>Brian F.</h3>
+            <p>Digital Marketing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She is eager to learn and contributes thoughtful ideas to our marketing activities.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">AM</div>
+          <div class="testimonial-client">
+            <h3>Angela M.</h3>
+            <p>Social Media Management</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca helps us maintain a consistent online presence with well-planned content.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">CM</div>
+          <div class="testimonial-client">
+            <h3>Carlo M.</h3>
+            <p>Video Editing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She takes feedback positively and works to make every video better.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">JC</div>
+          <div class="testimonial-client">
+            <h3>Jasmine C.</h3>
+            <p>Content Creation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Her creativity helps us communicate our ideas clearly and connect with our audience.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">MT</div>
+          <div class="testimonial-client">
+            <h3>Miguel T.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca is professional, adaptable, and willing to learn new tools and processes.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">RP</div>
+          <div class="testimonial-client">
+            <h3>Rachel P.</h3>
+            <p>Graphic Design</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She works hard to ensure our graphics reflect our brand identity and message.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">FD</div>
+          <div class="testimonial-client">
+            <h3>Francis D.</h3>
+            <p>Lead Generation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Her research is organized, and she pays close attention to the information we need.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">DP</div>
+          <div class="testimonial-client">
+            <h3>Denise P.</h3>
+            <p>Social Media Management</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca helps turn our ideas into a structured content plan that is easier to follow.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">AC</div>
+          <div class="testimonial-client">
+            <h3>Aaron C.</h3>
+            <p>Video Editing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She follows the project brief carefully and makes thoughtful adjustments when needed.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">SB</div>
+          <div class="testimonial-client">
+            <h3>Samantha B.</h3>
+            <p>Content Creation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca is creative, receptive to suggestions, and focused on improving her work.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">PR</div>
+          <div class="testimonial-client">
+            <h3>Patrick R.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She is easy to work with, communicates professionally, and handles assigned tasks with care.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">CW</div>
+          <div class="testimonial-client">
+            <h3>Christine W.</h3>
+            <p>Digital Marketing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca helps organize campaign materials and supports our marketing activities.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">JG</div>
+          <div class="testimonial-client">
+            <h3>Jerome G.</h3>
+            <p>Lead Generation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She approaches research carefully and makes an effort to understand our target audience.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">MJ</div>
+          <div class="testimonial-client">
+            <h3>Melissa J.</h3>
+            <p>Graphic Design</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Her designs are visually appealing and help keep our social media content consistent.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">NC</div>
+          <div class="testimonial-client">
+            <h3>Nathan C.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca follows instructions carefully and asks questions whenever she needs clarification.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">KB</div>
+          <div class="testimonial-client">
+            <h3>Katrina B.</h3>
+            <p>Social Media Management</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She shares useful content ideas and helps us prepare posts ahead of schedule.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">DB</div>
+          <div class="testimonial-client">
+            <h3>Daniel B.</h3>
+            <p>Video Editing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca pays attention to video pacing and subtitles to make our content easier to follow.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">MR</div>
+          <div class="testimonial-client">
+            <h3>Michelle R.</h3>
+            <p>Content Creation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She listens to our needs and works to make each piece of content fit our brand.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">RM</div>
+          <div class="testimonial-client">
+            <h3>Ryan M.</h3>
+            <p>Digital Marketing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca has a positive attitude and is committed to learning and supporting our campaigns.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">AJ</div>
+          <div class="testimonial-client">
+            <h3>Alyssa J.</h3>
+            <p>Graphic Design</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She is receptive to feedback and takes care when making design revisions.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">MAL</div>
+          <div class="testimonial-client">
+            <h3>Mark Anthony L.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca stays organized and makes a genuine effort to complete tasks on time.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">EC</div>
+          <div class="testimonial-client">
+            <h3>Erica C.</h3>
+            <p>Social Media Management</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She helps us maintain consistency across our social media content and posting plans.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">JV</div>
+          <div class="testimonial-client">
+            <h3>John V.</h3>
+            <p>Lead Generation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca organizes prospect information clearly and follows the research requirements we provide.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">TF</div>
+          <div class="testimonial-client">
+            <h3>Trisha F.</h3>
+            <p>Content Creation</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She brings a positive attitude and explores creative ways to present our content.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">PM</div>
+          <div class="testimonial-client">
+            <h3>Paolo M.</h3>
+            <p>Video Editing</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“Mayca works hard to deliver polished videos that follow our creative direction.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card-top">
+          <div class="testimonial-avatar" aria-hidden="true">JC</div>
+          <div class="testimonial-client">
+            <h3>Janine C.</h3>
+            <p>Virtual Assistance</p>
+          </div>
+        </div>
+        <div class="testimonial-rating" aria-label="Sample rating: five out of five stars">
+          <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
+          <span class="testimonial-score">5.0 out of 5</span>
+        </div>
+        <blockquote>“She is professional, approachable, and willing to adapt to our team's workflow.”</blockquote>
+        <span class="testimonial-demo-label">Sample feedback</span>
+      </article>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="about-image-side reveal">
@@ -763,6 +1446,7 @@ Syntax highlighting has been disabled due to code size.
     <a href="#hero">Home</a>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
