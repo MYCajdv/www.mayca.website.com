@@ -493,11 +493,15 @@
     gap: 1.25rem;
   }
   .testimonial-card.is-active {
-    animation: testimonial-slide-in 0.55s ease both;
+    animation: testimonial-slide-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: transform, opacity;
   }
   @keyframes testimonial-slide-in {
-    from { opacity: 0.35; transform: translateX(34px); }
+    from { opacity: 0; transform: translateX(48px); }
     to { opacity: 1; transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-card.is-active { animation: none; }
   }
   #testimonials.all-visible .testimonials-carousel { max-width: 1200px; }
   #testimonials.all-visible .testimonials-grid {
@@ -1624,7 +1628,7 @@
     if (testimonialCards.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     testimonialTimer = window.setInterval(() => {
       testimonialDirection = 1;
-      showTestimonial(activeTestimonialIndex + 1, testimonialDirection);
+      showTestimonial(activeTestimonialIndex + visibleTestimonialsCount, testimonialDirection);
     }, 1000);
   }
 
