@@ -483,13 +483,21 @@
     text-align: center;
   }
   .testimonials-carousel {
-    max-width: 720px;
+    max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
   }
   .testimonials-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .testimonial-card.is-active {
+    animation: testimonial-slide-in 0.55s ease both;
+  }
+  @keyframes testimonial-slide-in {
+    from { opacity: 0.35; transform: translateX(34px); }
+    to { opacity: 1; transform: translateX(0); }
   }
   #testimonials.all-visible .testimonials-carousel { max-width: 1200px; }
   #testimonials.all-visible .testimonials-grid {
@@ -1571,17 +1579,22 @@
   let testimonialTimer = null;
   let testimonialDirection = 1;
 
+  const visibleTestimonialsCount = 3;
   function showTestimonial(index, direction = 1) {
     if (!testimonialCards.length) return;
     activeTestimonialIndex = (index + testimonialCards.length) % testimonialCards.length;
     testimonialCards.forEach((card, cardIndex) => {
-      const active = cardIndex === activeTestimonialIndex;
+      const distance = (cardIndex - activeTestimonialIndex + testimonialCards.length) % testimonialCards.length;
+      const active = distance < visibleTestimonialsCount;
       card.hidden = !active;
       card.classList.toggle('is-hidden', !active);
       card.classList.toggle('is-active', active);
       if (active) card.style.setProperty('--testimonial-slide', direction > 0 ? '28px' : '-28px');
     });
-    if (testimonialPosition) testimonialPosition.textContent = (activeTestimonialIndex + 1) + ' / ' + testimonialCards.length;
+    if (testimonialPosition) {
+      const lastVisible = Math.min(activeTestimonialIndex + visibleTestimonialsCount, testimonialCards.length);
+      testimonialPosition.textContent = (activeTestimonialIndex + 1) + '–' + lastVisible + ' / ' + testimonialCards.length;
+    }
   }
 
   const testimonialsNavLink = document.querySelector('#testimonials-nav-link');
