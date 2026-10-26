@@ -491,6 +491,36 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
+  #testimonials.all-visible .testimonials-carousel { max-width: 1200px; }
+  #testimonials.all-visible .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  #testimonials.all-visible .testimonial-card[hidden],
+  #testimonials.all-visible .testimonial-card.is-hidden { display: flex !important; }
+  #testimonials.all-visible .testimonials-controls { display: none; }
+  .testimonials-view-toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .testimonials-view-toggle {
+    border: 1px solid rgba(26,153,153,0.3);
+    border-radius: 999px;
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    color: var(--teal-dark);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .testimonials-view-toggle:hover { background: var(--teal-light); }
+  @media (max-width: 900px) {
+    #testimonials.all-visible .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    #testimonials.all-visible .testimonials-grid { grid-template-columns: minmax(0, 1fr); }
+  }
   .testimonial-card.is-hidden,
   .testimonial-card[hidden] { display: none !important; }
   .testimonial-card.is-active {
@@ -630,7 +660,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#work">Work</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#testimonials" id="testimonials-nav-link">Testimonials</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Hire Me</a>
@@ -1409,6 +1439,9 @@
     <span class="testimonials-position" id="testimonial-position">1 / 35</span>
     <button class="testimonials-arrow" id="testimonial-next" type="button" aria-label="Next testimonial">›</button>
   </div>
+  <div class="testimonials-view-toggle-wrap">
+    <button class="testimonials-view-toggle" id="testimonials-view-toggle" type="button" aria-expanded="false">View All Testimonials</button>
+  </div>
 </div>
 </section>
 
@@ -1536,10 +1569,35 @@
     if (testimonialPosition) testimonialPosition.textContent = (activeTestimonialIndex + 1) + ' / ' + testimonialCards.length;
   }
 
+  const testimonialsNavLink = document.querySelector('#testimonials-nav-link');
+  const testimonialsViewToggle = document.querySelector('#testimonials-view-toggle');
+
   function stopTestimonialAutoplay() {
     if (testimonialTimer) window.clearInterval(testimonialTimer);
     testimonialTimer = null;
   }
+  function setTestimonialsView(showAll) {
+    if (!testimonialSection) return;
+    testimonialSection.classList.toggle('all-visible', showAll);
+    if (testimonialsViewToggle) {
+      testimonialsViewToggle.setAttribute('aria-expanded', String(showAll));
+      testimonialsViewToggle.textContent = showAll ? 'Show Rotating Preview' : 'View All Testimonials';
+    }
+    if (showAll) {
+      stopTestimonialAutoplay();
+      testimonialCards.forEach(card => {
+        card.hidden = false;
+        card.classList.remove('is-hidden', 'is-active');
+      });
+    } else {
+      showTestimonial(activeTestimonialIndex, 1);
+      startTestimonialAutoplay();
+    }
+  }
+  if (testimonialsNavLink) testimonialsNavLink.addEventListener('click', () => setTestimonialsView(true));
+  if (testimonialsViewToggle) testimonialsViewToggle.addEventListener('click', () => {
+    setTestimonialsView(!testimonialSection.classList.contains('all-visible'));
+  });
   function startTestimonialAutoplay() {
     stopTestimonialAutoplay();
     if (testimonialCards.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
