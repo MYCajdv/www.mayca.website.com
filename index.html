@@ -523,6 +523,22 @@
   }
   .testimonial-card.is-hidden,
   .testimonial-card[hidden] { display: none !important; }
+
+  /* CSS fallback: clicking the Testimonials navigation reveals every card even if JS is delayed. */
+  #testimonials:target .testimonials-carousel { max-width: 1200px; }
+  #testimonials:target .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  #testimonials:target .testimonial-card[hidden],
+  #testimonials:target .testimonial-card.is-hidden { display: flex !important; }
+  #testimonials:target .testimonials-controls { display: none; }
+  @media (max-width: 900px) {
+    #testimonials:target .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    #testimonials:target .testimonials-grid { grid-template-columns: minmax(0, 1fr); }
+  }
   .testimonial-card.is-active {
     animation: testimonial-slide-in 0.45s ease both;
   }
@@ -1594,7 +1610,10 @@
       startTestimonialAutoplay();
     }
   }
-  if (testimonialsNavLink) testimonialsNavLink.addEventListener('click', () => setTestimonialsView(true));
+  if (testimonialsNavLink) testimonialsNavLink.addEventListener('click', () => {
+    setTestimonialsView(true);
+    window.setTimeout(() => testimonialSection && testimonialSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+  });
   if (testimonialsViewToggle) testimonialsViewToggle.addEventListener('click', () => {
     setTestimonialsView(!testimonialSection.classList.contains('all-visible'));
   });
