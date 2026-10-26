@@ -742,7 +742,27 @@
   .pricing-callout p { max-width: 540px; margin: 0 auto 1.5rem; color: var(--mid); line-height: 1.75; }
   .pricing-cta { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; }
   @media (max-width: 950px) { .pricing-packages { grid-template-columns: 1fr; max-width: 620px; } }
-  @media (max-width: 700px) { #pricing { padding: 4rem 1.25rem; } .pricing-callout { padding: 2rem 1.25rem; } .pricing-package { padding: 1.4rem; } }
+  /* Single-offer pricing layout */
+  #pricing { padding: 6.5rem 2rem; }
+  #pricing .section-header { max-width: 760px; margin: 0 auto 2.5rem; text-align: center; }
+  #pricing .section-tag { margin-bottom: .8rem; }
+  .pricing-packages { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; gap: 1.5rem; max-width: 100%; margin: 0 auto 2rem; }
+  .pricing-package { width: 100%; padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: 24px; }
+  .pricing-package h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; }
+  .package-account { margin-bottom: 1.5rem; line-height: 1.6; }
+  .pricing-package ul { margin-bottom: 1.75rem; }
+  .pricing-package li { padding-top: .7rem; padding-bottom: .7rem; font-size: .95rem; }
+  .package-rate { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 1rem; padding-top: 1.25rem; }
+  .package-rate strong { font-size: clamp(1.6rem, 4vw, 2rem); }
+  .pricing-callout { max-width: 760px; margin: 0 auto; padding: clamp(2rem, 4vw, 3rem); }
+  @media (max-width: 700px) {
+    #pricing { padding: 4.5rem 1.1rem; }
+    #pricing .section-header { margin-bottom: 1.75rem; }
+    .pricing-package { padding: 1.4rem; }
+    .pricing-package li { font-size: .9rem; }
+    .package-rate { align-items: flex-start; flex-direction: column; gap: .4rem; }
+    .pricing-callout { padding: 2rem 1.25rem; }
+  }
 
 </style>
 </head>
