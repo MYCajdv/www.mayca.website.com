@@ -1805,7 +1805,7 @@
   if (testimonialCards.length) {
     showTestimonial(0, 1);
     if (testimonialPrev) testimonialPrev.addEventListener('click', () => {
-      showTestimonial(activeTestimonialIndex 1, -1);
+      showTestimonial(activeTestimonialIndex - 1, -1);
       startTestimonialAutoplay();
     });
     if (testimonialNext) testimonialNext.addEventListener('click', () => {
@@ -1850,8 +1850,8 @@
       const prefix = match[1], target = Number(match[2]), suffix = match[3];
       const duration = 1800, start = performance.now();
       const tick = (now) => {
-        const progress = Math.min((now start) / duration, 1);
-        const eased = 1 Math.pow(1 progress, 3);
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
         const value = target % 1 ? (target * eased).toFixed(1) : Math.round(target * eased);
         el.textContent = prefix + value + suffix;
         if (progress < 1) requestAnimationFrame(tick);
