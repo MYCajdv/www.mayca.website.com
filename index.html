@@ -719,6 +719,31 @@
   .pricing-note { display: block; margin-top: 1.25rem; color: var(--light); font-size: .8rem; letter-spacing: .03em; }
   @media (max-width: 700px) { #pricing { padding: 4rem 1.25rem; } .pricing-callout { padding: 2.2rem 1.25rem; } }
 
+
+  #pricing { padding: 6rem 4rem; background: var(--warm); }
+  #pricing .section-subtitle { max-width: 650px; margin: 1rem auto 0; color: var(--mid); line-height: 1.7; }
+  .pricing-packages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; max-width: 1200px; margin: 0 auto 2.5rem; align-items: stretch; }
+  .pricing-package { display: flex; flex-direction: column; background: var(--white); border: 1px solid rgba(58,191,191,.22); border-radius: 22px; padding: 1.8rem; box-shadow: 0 12px 35px rgba(28,28,28,.04); transition: transform .25s ease, box-shadow .25s ease; }
+  .pricing-package:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rgba(28,28,28,.09); }
+  .pricing-package-featured { border: 2px solid var(--teal); }
+  .package-eyebrow { color: var(--teal-dark); text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; font-weight: 700; margin-bottom: .8rem; }
+  .pricing-package h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: .35rem; }
+  .package-account { color: var(--mid); font-size: .88rem; margin-bottom: 1.3rem; }
+  .pricing-package ul { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
+  .pricing-package li { position: relative; padding: .55rem 0 .55rem 1.35rem; color: var(--mid); font-size: .88rem; line-height: 1.5; border-bottom: 1px solid rgba(28,28,28,.06); }
+  .pricing-package li::before { content: '✓'; position: absolute; left: 0; color: var(--teal-dark); font-weight: 700; }
+  .package-rate { padding-top: 1rem; border-top: 1px solid rgba(58,191,191,.22); display: flex; flex-direction: column; gap: .35rem; }
+  .package-rate span { color: var(--light); font-size: .8rem; }
+  .package-rate strong { color: var(--teal-dark); font-size: 1.55rem; }
+  .package-rate small { color: var(--mid); font-size: .8rem; font-weight: 400; }
+  .pricing-callout { max-width: 760px; margin: 0 auto; padding: 2.5rem 2rem; text-align: center; background: var(--white); border: 1px solid rgba(58,191,191,.22); border-radius: 28px; box-shadow: 0 18px 55px rgba(28,28,28,.06); }
+  .pricing-callout-icon { width: 54px; height: 54px; margin: 0 auto 1rem; display: grid; place-items: center; border-radius: 50%; background: var(--teal-light); color: var(--teal-dark); font-size: 1.5rem; }
+  .pricing-callout h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .8rem; }
+  .pricing-callout p { max-width: 540px; margin: 0 auto 1.5rem; color: var(--mid); line-height: 1.75; }
+  .pricing-cta { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; }
+  @media (max-width: 950px) { .pricing-packages { grid-template-columns: 1fr; max-width: 620px; } }
+  @media (max-width: 700px) { #pricing { padding: 4rem 1.25rem; } .pricing-callout { padding: 2rem 1.25rem; } .pricing-package { padding: 1.4rem; } }
+
 </style>
 </head>
 <body>
@@ -1589,16 +1614,61 @@
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-header reveal">
-    <div class="section-tag">Flexible Pricing</div>
-    <h2 class="section-title">Let's Find the Right <em>Fit</em></h2>
-    <p class="section-subtitle">Every brand has different goals. Let's talk about the support you need for organic social media, video editing, and paid ads.</p>
+    <div class="section-tag">Social Media Management Packages</div>
+    <h2 class="section-title">Choose Your <em>Support</em></h2>
+    <p class="section-subtitle">Flexible support for your social media goals, from daily content management to full account management.</p>
+  </div>
+  <div class="pricing-packages">
+    <article class="pricing-package reveal">
+      <div class="package-eyebrow">Starter Support</div>
+      <h3>3 Hours per Day</h3>
+      <p class="package-account">1 Social Media Account</p>
+      <ul>
+        <li>Content creation and scheduling</li>
+        <li>Caption writing</li>
+        <li>Community engagement (comments and messages)</li>
+        <li>Hashtag research</li>
+        <li>Basic performance monitoring</li>
+      </ul>
+      <div class="package-rate"><span>Rate</span><strong>$5 to $10 <small>/ hour</small></strong></div>
+    </article>
+    <article class="pricing-package pricing-package-featured reveal">
+      <div class="package-eyebrow">Growth Support</div>
+      <h3>4 Hours per Day</h3>
+      <p class="package-account">2 Social Media Accounts</p>
+      <ul>
+        <li>Content creation and scheduling</li>
+        <li>Caption writing</li>
+        <li>Community engagement</li>
+        <li>Hashtag and trend research</li>
+        <li>Basic graphic design</li>
+        <li>Weekly performance updates</li>
+      </ul>
+      <div class="package-rate"><span>Rate</span><strong>$5 to $10 <small>/ hour</small></strong></div>
+    </article>
+    <article class="pricing-package reveal">
+      <div class="package-eyebrow">Full Support</div>
+      <h3>8 Hours per Day</h3>
+      <p class="package-account">All Social Media Accounts</p>
+      <ul>
+        <li>Full social media management</li>
+        <li>Content planning and strategy</li>
+        <li>Content creation (graphics, captions, and posts)</li>
+        <li>Post scheduling and publishing</li>
+        <li>Community management</li>
+        <li>Lead generation and outreach</li>
+        <li>Analytics and reporting</li>
+        <li>Competitor research</li>
+        <li>Brand growth strategy</li>
+      </ul>
+      <div class="package-rate"><span>Rate</span><strong>$5 to $10 <small>/ hour</small></strong></div>
+    </article>
   </div>
   <div class="pricing-callout reveal">
     <div class="pricing-callout-icon">✦</div>
     <h3>Do you have a price in mind?</h3>
-    <p>Tell me about your goals and budget. We'll discuss a package that fits your needs, priorities, and business.</p>
+    <p>Let's talk about your goals and budget and find a package that works for your business.</p>
     <a href="mailto:maycabaluyut03@gmail.com?subject=Book%20a%20Pricing%20Call" class="btn-primary pricing-cta">Book a Call Now <span aria-hidden="true">↗</span></a>
-    <span class="pricing-note">Organic social media · Video editing · Paid ads</span>
   </div>
 </section>
 
